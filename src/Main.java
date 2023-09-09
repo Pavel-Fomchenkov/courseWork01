@@ -1,10 +1,10 @@
 public class Main {
     static Employee[] employees = new Employee[10];
 
-    public static void addEmployee(Employee newEmployee) {
+    public static void addEmployee(String lastName, String firstName, String middleName, int department, double salary) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] == null) {
-                employees[i] = newEmployee;
+                employees[i] = new Employee(firstName, middleName, lastName, department, salary);
                 break;
             } else if (employees[i] == employees[employees.length - 1]) {
                 System.out.println("База данных работников переполнена.");
@@ -32,7 +32,7 @@ public class Main {
         double minSalary = 0.0;
         int index = 0;
         int k = 1;
-        // looking for first non empty cell in employees
+        // looking for first nonempty cell in employees
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
                 minSalary = employees[i].getSalary();
@@ -59,7 +59,7 @@ public class Main {
         double maxSalary = 0.0;
         int index = 0;
         int k = 1;
-        // looking for first non empty cell in employees
+        // looking for first nonempty cell in employees
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
                 maxSalary = employees[i].getSalary();
@@ -92,22 +92,22 @@ public class Main {
         return (double) Math.round(expensesSalary() / count * 100) / 100;
     }
     public static void printNames() {
-        int comma = 0;
+        boolean comma = false;
         for (Employee employee : employees) {
             if (employee != null) {
-                if(comma != 0) System.out.print(", ");
+                if(comma) System.out.print(", ");
                 System.out.printf("%s %s %s", employee.getLastName(), employee.getFirstName(), employee.getMiddleName());
-                comma++;
+                comma = true;
             }
         }
     }
 
     public static void main(String[] args) {
-        addEmployee(new Employee("Елена", "Петровна", "Иванова", 1, 1000.0));
-        addEmployee(new Employee("Геннадий", "Иванович", "Молодец", 2, 1200.33));
-        addEmployee(new Employee("Василиса", "Ильинична", "Муромова", 1, 1000.0));
-        addEmployee(new Employee("Иван", "Иванович", "Иванов", 2, 1800.33));
-
+        addEmployee("Иванова","Елена", "Петровна",  1, 1000.0);
+        addEmployee("Молодец","Геннадий", "Иванович",  2, 1200.33);
+        addEmployee("Муромова","Василиса", "Ильинична",  1, 1000.0);
+        addEmployee("Иванов","Иван", "Иванович",  2, 1800.33);
+        addEmployee("Воробьев","Евгений", "Карпович",  2, 1800.33);
 
         getAllEmployees();
         System.out.printf("Расходы на оплату труда составят %.2f руб.\n", expensesSalary());
