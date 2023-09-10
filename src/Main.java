@@ -12,6 +12,29 @@ public class Main {
         }
     }
 
+    public static void deleteEmployee(int id) {
+        int i = 0;
+        boolean flag = false;
+        for ( ; i < employees.length && employees[i] != null; i++) {
+            if (employees[i].getId() == id) {
+                flag = true;
+                System.out.printf("Работник %s удален. \n", employees[i]);
+                break;
+            }
+        }
+            if (flag) {
+                for (; i < employees.length && employees[i] != null; i++) {
+                    if (i == employees.length - 1) {
+                        employees[i] = null;
+                        return;
+                    } else employees[i] = employees[i + 1];
+                }
+                return;
+            }
+            System.out.printf("Работник c id: %d не найден.\n", id);
+        }
+
+
     public static void printEmployees() {
         for (Employee employee : employees) {
             if (employee == null) {
@@ -275,5 +298,6 @@ public class Main {
         //printEmployees(2);
         printEmployees(employeeWithSalaryLowerOrEqualThen(1000.0));
         printEmployees(employeeWithSalaryHigherOrEqualThen(1850.0));
+        deleteEmployee(20);
     }
 }
