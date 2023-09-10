@@ -15,24 +15,39 @@ public class Main {
     public static void deleteEmployee(int id) {
         int i = 0;
         boolean flag = false;
-        for ( ; i < employees.length && employees[i] != null; i++) {
+        for (; i < employees.length && employees[i] != null; i++) {
             if (employees[i].getId() == id) {
                 flag = true;
                 System.out.printf("Работник %s удален. \n", employees[i]);
                 break;
             }
         }
-            if (flag) {
-                for (; i < employees.length && employees[i] != null; i++) {
-                    if (i == employees.length - 1) {
-                        employees[i] = null;
-                        return;
-                    } else employees[i] = employees[i + 1];
-                }
+        if (flag) {
+            for (; i < employees.length && employees[i] != null; i++) {
+                if (i == employees.length - 1) {
+                    employees[i] = null;
+                    return;
+                } else employees[i] = employees[i + 1];
+            }
+            return;
+        }
+        System.out.printf("Работник c id: %d не найден.\n", id);
+    }
+
+    public static void editEmployee(String lastName, String firstName, String middleName, int newDepartment, double newSalary) {
+        for (Employee employee : employees) {
+            if (employee == null) {
+                break;
+            } else if (employee.getLastName().equals(lastName) && employee.getFirstName().equals(firstName) &&
+            employee.getMiddleName().equals(middleName)){
+            employee.setDepartment(newDepartment);
+            employee.setSalary(newSalary);
+                System.out.printf("Данные сотрудника изменены на %s \n", employee);
                 return;
             }
-            System.out.printf("Работник c id: %d не найден.\n", id);
         }
+        System.out.println("Введены неверные данные");
+    }
 
 
     public static void printEmployees() {
@@ -299,5 +314,6 @@ public class Main {
         printEmployees(employeeWithSalaryLowerOrEqualThen(1000.0));
         printEmployees(employeeWithSalaryHigherOrEqualThen(1850.0));
         deleteEmployee(20);
+        editEmployee("Муромова", "Василиса", "Ильинична", 10, 2000.0);
     }
 }
