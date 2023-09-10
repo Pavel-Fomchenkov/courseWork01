@@ -49,7 +49,6 @@ public class Main {
         System.out.println("Введены неверные данные");
     }
 
-
     public static void printEmployees() {
         for (Employee employee : employees) {
             if (employee == null) {
@@ -101,7 +100,6 @@ public class Main {
         return expences;
     }
 
-
     public static Employee minSalaryEmployee() {
         double minSalary = employees[0].getSalary();
         int index = 0;
@@ -145,7 +143,6 @@ public class Main {
         }
         return employees[index];
     }
-
 
     public static Employee maxSalaryEmployee() {
         double maxSalary = employees[0].getSalary();
@@ -314,6 +311,6 @@ public class Main {
         printEmployees(employeeWithSalaryLowerOrEqualThen(1000.0));
         printEmployees(employeeWithSalaryHigherOrEqualThen(1850.0));
         deleteEmployee(20);
-        editEmployee("Муромова", "Василиса", "Ильинична", 10, 2000.0);
+        editEmployee("Муромова", "Василиса", "Ильинична", 5, 2000.0);
     }
 }
