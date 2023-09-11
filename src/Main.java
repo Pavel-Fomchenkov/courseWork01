@@ -5,11 +5,11 @@ public class Main {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] == null) {
                 employees[i] = new Employee(firstName, middleName, lastName, department, salary);
-                break;
-            } else if (employees[i] == employees[employees.length - 1]) {
-                System.out.println("База данных работников переполнена.");
+                return;
             }
         }
+        System.out.println("База данных работников переполнена.");
+
     }
 
     public static void deleteEmployee(int id) {
