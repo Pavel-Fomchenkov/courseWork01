@@ -1,6 +1,5 @@
 public class Main {
-
-    public static void main(String[] args) {
+  public static void main(String[] args) {
         EmployeeBook employeeBook = new EmployeeBook();
         employeeBook.addEmployee("Иванова", "Елена", "Петровна", 1, 1050.0);
         employeeBook.addEmployee("Молодец", "Геннадий", "Иванович", 2, 1100.0);
