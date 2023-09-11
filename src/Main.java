@@ -5,11 +5,10 @@ public class Main {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] == null) {
                 employees[i] = new Employee(firstName, middleName, lastName, department, salary);
-                break;
-            } else if (employees[i] == employees[employees.length - 1]) {
-                System.out.println("База данных работников переполнена.");
+                return;
             }
         }
+        System.out.println("База данных работников переполнена.");
     }
 
     public static void deleteEmployee(int id) {
@@ -34,14 +33,15 @@ public class Main {
         System.out.printf("Работник c id: %d не найден.\n", id);
     }
 
-    public static void editEmployee(String lastName, String firstName, String middleName, int newDepartment, double newSalary) {
+    public static void editEmployee(String lastName, String firstName, String middleName, int newDepartment,
+                                    double newSalary) {
         for (Employee employee : employees) {
             if (employee == null) {
                 break;
             } else if (employee.getLastName().equals(lastName) && employee.getFirstName().equals(firstName) &&
-            employee.getMiddleName().equals(middleName)){
-            employee.setDepartment(newDepartment);
-            employee.setSalary(newSalary);
+                    employee.getMiddleName().equals(middleName)) {
+                employee.setDepartment(newDepartment);
+                employee.setSalary(newSalary);
                 System.out.printf("Данные сотрудника изменены на %s \n", employee);
                 return;
             }
@@ -254,7 +254,7 @@ public class Main {
         if (indicesLength == 0) return selected;
         boolean flag = true;
         for (int i = 0; i < indices.length; i++) {
-            if (indices.length == 0 || indices[i] == 0 && !flag) break;
+            if (indices[i] == 0 && !flag) break;
             selected[i] = employees[indices[i]];
             flag = false;
         }
@@ -276,7 +276,7 @@ public class Main {
         if (indicesLength == 0) return selected;
         boolean flag = true;
         for (int i = 0; i < indices.length; i++) {
-            if (indices.length == 0 || indices[i] == 0 && !flag) break;
+            if (indices[i] == 0 && !flag) break;
             selected[i] = employees[indices[i]];
             flag = false;
         }
