@@ -2,14 +2,13 @@ public class Employee {
     private final String firstName;
     private final String middleName;
     private final String lastName;
-    private static int ID;
+    private static int counter;
     private final int id;
     private int department;
     private double salary;
 
     public Employee(String firstName, String middleName, String lastName, int department, double salary) {
-        ID++;
-        id = ID;
+        id = ++counter;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -51,6 +50,6 @@ public class Employee {
 
     @Override
     public String toString() {
-            return String.format("id: %d - %s %s %s, отдел %d, оклад: %.2f", id, lastName, firstName, middleName, department, salary);
+        return String.format("id: %d - %s %s %s, отдел %d, оклад: %.2f", id, lastName, firstName, middleName, department, salary);
     }
 }
