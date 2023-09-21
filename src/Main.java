@@ -29,5 +29,6 @@ public class Main {
         employeeBook.printEmployees(employeeBook.employeeWithSalaryHigherOrEqualThen(1850.0));
         employeeBook.deleteEmployee(20);
         employeeBook.editEmployee("Муромова", "Василиса", "Ильинична", 5, 2000.0);
+        employeeBook.printEmployeesByDepartment();
     }
 }
