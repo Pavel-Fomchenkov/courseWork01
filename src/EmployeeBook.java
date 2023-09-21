@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class EmployeeBook {
     private Employee[] employees = new Employee[10];
 
@@ -302,5 +304,25 @@ public class EmployeeBook {
         return selected;
     }
 
-
+    // prints departments with its employees respectively
+    public void printEmployeesByDepartment() {
+        int[] departments = new int[employees.length];
+        int count = 0;
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] == null) break;
+            for (int j = 0; j < departments.length; j++) {
+                if (departments[j] == employees[i].getDepartment()) break;
+                if (departments[j] == 0) {
+                    departments[j] = employees[i].getDepartment();
+                    count++;
+                    break;
+                }
+            }
+        }
+        Arrays.sort(departments, 0, count);
+        for (int k = 0; k < count; k++) {
+            System.out.println("Department " + departments[k]);
+            printEmployees(departments[k]);
+        }
+    }
 }

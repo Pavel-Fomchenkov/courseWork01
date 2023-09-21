@@ -1,5 +1,5 @@
 public class Main {
-  public static void main(String[] args) {
+    public static void main(String[] args) {
         EmployeeBook employeeBook = new EmployeeBook();
         employeeBook.addEmployee("Иванова", "Елена", "Петровна", 1, 1050.0);
         employeeBook.addEmployee("Молодец", "Геннадий", "Иванович", 2, 1100.0);
@@ -29,5 +29,6 @@ public class Main {
         employeeBook.printEmployees(employeeBook.employeeWithSalaryHigherOrEqualThen(1850.0));
         employeeBook.deleteEmployee(20);
         employeeBook.editEmployee("Муромова", "Василиса", "Ильинична", 5, 2000.0);
+        employeeBook.printEmployeesByDepartment();
     }
 }
